@@ -380,7 +380,66 @@ for start_point in start_points:
 
 
 ===========================================================
+# Making Colorful Spiral Web With Python.
+colors = []
 
+# Input variables:
+print ("Please enter the 'X' & 'Y' coordinates of the canvas.")
+X = int (input ("\tPlease enter the 'X' coordinate of the canvas: "))
+Y = int (input ("\tPlease enter the 'Y' coordinate of the canvas: "))
+R = int (input ("Please enter the 'Range' value of the spiral: "))
+S = int (input ("Please enter the speed limit of the turtle: "))
+SN = int (input ("Please define the number of sides of the base poligon: "))
+A = int (input ("Please define the degree of angle of the base poligon: "))
+print ("Please enter 'Y' or 'y', if you want the spiral to speen in 'Clockwise' direction, else enter 'N' or 'n'.")
+SPEEN = input ("\tPlease enter your choice: ")
+Back_Ground = input ("Please enter the Back Ground color of the spiral: ")
+
+for i in range (SN):
+	Color = input ("Please enter the colors you want to see in the spiral: ")
+	colors.append (Color)
+
+if SPEEN == "Y" or SPEEN == "y":
+	Speen = 'Clockwise'
+
+elif SPEEN == "N" or SPEEN == "n":
+	Speen = 'Anti-Clockwise'
+
+else:
+	print ("\n Please re-check and re-enter the command.")
+
+import turtle
+wn = turtle.Screen()
+screen=turtle.Screen()
+t = turtle.Turtle()
+
+screen.setup(X,Y)
+screen.bgcolor(Back_Ground)
+
+t.speed (S)
+t.ht()
+
+Pal = len (colors)
+Love = Pal - (Pal - SN)
+Dil = R % Love
+
+for x in range(R):
+	t.pencolor(colors[x%SN])
+	t.width(x/100 + 1)
+	t.forward(x)
+	if Speen == "Clockwise":
+		t.right(A)
+
+	elif Speen == "Anti-Clockwise":
+		t.left(A)
+
+t.pencolor(colors[Dil])
+t.forward(R/2)
+
+turtle.done()
+
+print ("\n '''This program is created by SRIJAN BHATTACHARYYA,,,")
+===========================================================
 
 
 
